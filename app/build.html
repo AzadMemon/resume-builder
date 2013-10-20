@@ -1,0 +1,266 @@
+<div class="tabbable" id="build"> <!-- Only required for left/right tabs -->
+  
+  <!-- Tabs -->
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#header" data-toggle="tab">Header</a></li>
+    <li ng-repeat="section in sections">
+      <a href="#{{section.sectionId}}" data-toggle="tab">
+        {{section.sectionTitle}} 
+        <span ng-click="removeSection(section)"><i class="icon-remove"></i></span>
+      </a>
+    </li>
+    <li data-toggle="tab" ng-click="addSection()"><a><i class="icon-plus"></i></a></li>
+  </ul>
+
+  <!--Tab content-->
+  <div class="tab-content">
+    
+    <!--Header-->
+    <div class="tab-pane active" id="header">
+      <input class="input-large input-block-level" type="text" ng-model="personsName" placeholder="Your Name (e.g. John Smith) ">
+      <input class="input-large input-block-level" type="text" ng-model="email" placeholder="Your email (e.g. example@exmail.com) ">
+
+      <div>
+        <form>
+        <label>Current Address:</label>
+        
+        <span ng-show="showCurrStreet" class="form-inline">
+          <input class="input-large" type="text" ng-model="currStreet" placeHolder="23 Yonge Street">
+          <button class="btn" ng-click="currStreet='';showCurrStreet=false;">Remove Street</button>
+        </span>
+        <button class="btn btn-primary"  ng-click="showCurrStreet=true" ng-show="!showCurrStreet">Add Street</button>
+        
+        <br>
+        <br>
+        
+        <span ng-show="showCurrCity" class="form-inline">
+          <input class="input-large" type="text" ng-model="currCity" placeHolder="Toronto">
+          <button class="btn" ng-click="currCity='';showCurrCity=false;">Remove City</button>
+        </span>
+        <button class="btn btn-primary"  ng-click="showCurrCity=true" ng-show="!showCurrCity">Add City</button>
+
+        <br>
+        <br>
+        
+        <span ng-show="showCurrProvince" class="form-inline">
+          <input class="input-large" type="text" ng-model="currProvince" placeHolder="Ontario">
+          <button class="btn" ng-click="currProvince='';showCurrProvince=false;">Remove Province</button>
+        </span>
+        <button class="btn btn-primary"  ng-click="showCurrProvince=true" ng-show="!showCurrProvince">Add Province</button>
+        
+        <br>
+        <br>
+        
+        <span ng-show="showCurrPostalCode" class="form-inline">
+          <input class="input-medium" type="text" ng-model="currPostalCode" placeHolder="M4H 1J6">
+          <button class="btn" ng-click="surrPostalCode='';showCurrPostalCode=false;">Remove Postal Code</button>
+        </span>
+        <button class="btn btn-primary"  ng-click="showCurrPostalCode=true" ng-show="!showCurrPostalCode">Add Postal Code</button>
+        
+        <br>
+        <br>
+        
+        <span ng-show="showCurrTel" class="form-inline">
+          <input class="input-medium" type="text" ng-model="currTel" placeHolder="416 - 555 - 5555">
+          <button class="btn" ng-click="currTel='';showCurrTel=false;">Remove Telephone</button>
+        </span>
+        <button class="btn btn-primary"  ng-click="showCurrTel=true" ng-show="!showCurrTel">Add Telephone</button>
+        
+        <br>
+        <br>
+        
+        <span ng-show="showCurrCell" class="form-inline">
+          <input class="input-medium" type="text" ng-model="currCell" placeHolder="647 - 555 - 5555">
+          <button class="btn" ng-click="currCell='';showCurrCell=false;">Remove Cell</button>
+        </span>
+        <button class="btn btn-primary"  ng-click="showCurrCell=true" ng-show="!showCurrCell">Add Cell</button>
+        
+        </form>
+      </div>
+      
+      <div>
+        <form>
+        <label>Permanent Address:</label>
+        
+        <span ng-show="showPermStreet" class="form-inline">
+          <input class="input-large" type="text" ng-model="permStreet" placeHolder="23 Yonge Street">
+          <button class="btn" ng-click="permStreet='';showPermStreet=false;">Remove Street</button>
+        </span>
+        <button class="btn btn-primary"  ng-click="showPermStreet=true" ng-show="!showPermStreet">Add Street</button>
+        
+        <br>
+        <br>
+        
+        <span ng-show="showPermCity" class="form-inline">
+          <input class="input-large" type="text" ng-model="permCity" placeHolder="Toronto">
+          <button class="btn" ng-click="permCity='';showPermCity=false;">Remove City</button>
+        </span>
+        <button class="btn btn-primary"  ng-click="showPermCity=true" ng-show="!showPermCity">Add City</button>
+        
+        <br>
+        <br>
+        
+        <span ng-show="showPermProvince" class="form-inline">
+          <input class="input-large" type="text" ng-model="permProvince" placeHolder="Ontario">
+          <button class="btn" ng-click="permProvince='';showPermProvince=false;">Remove Province</button>
+        </span>
+        <button class="btn btn-primary"  ng-click="showPermProvince=true" ng-show="!showPermProvince">Add Province</button>
+        
+        <br>
+        <br>
+        
+        <span ng-show="showPermPostalCode" class="form-inline">
+          <input class="input-medium" type="text" ng-model="permPostalCode" placeHolder="M4H 1J6">
+          <button class="btn" ng-click="permPostalCode='';showPermPostalCode=false;">Remove Postal Code</button>
+        </span>
+        <button class="btn btn-primary"  ng-click="showPermPostalCode=true" ng-show="!showPermPostalCode">Add Postal Code</button>
+        
+        <br>
+        <br>
+        
+        <span ng-show="showPermTel" class="form-inline">
+          <input class="input-medium" type="text" ng-model="permTel" placeHolder="416 - 555 - 5555">
+          <button class="btn" ng-click="permTel='';showPermTel=false;">Remove Telephone</button>
+        </span>
+        <button class="btn btn-primary"  ng-click="showPermTel=true" ng-show="!showPermTel">Add Telephone</button>
+        
+        <br>
+        <br>
+        
+        <span ng-show="showPermCell" class="form-inline">
+          <input class="input-medium" type="text" ng-model="permCell" placeHolder="647 - 555 - 5555">
+          <button class="btn" ng-click="permCell='';showPermCell=false;">Remove Cell</button>
+        </span>
+        <button class="btn btn-primary"  ng-click="showPermCell=true" ng-show="!showPermCell">Add Cell</button>
+        
+        </form>
+      </div>
+    </div>
+
+    <!--Sections-->
+
+    <div ng-repeat="section in sections" class="tab-pane" id="{{section.sectionId}}">
+      
+      <input class="input-large input-block-level" type="text" ng-model="section.sectionTitle" placeholder="Section Name (e.g. Summary of Qualifications)">
+      <br>
+      <br>
+
+      <div class="accordion" id="{{section.sectionId}}">
+        <div class="accordion-group" ng-repeat="subsection in section.subsections">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#{{section.sectionId}}" href="#{{section.sectionId}}-{{subsection.id}}" style="display:inline-block;">
+              Subsection {{subsection.id}}
+            </a>
+            <div ng-click="removeSubsection(section, subsection)" style="display:inline-block;float:right;padding: 8px 15px;">
+              <i class="icon-remove"></i>
+            </div>
+            <div ng-click="resetSubsection(subsection)" style="display:inline-block;float:right;padding: 8px 15px;">
+              <i class="icon-retweet"></i>
+            </div>
+          </div>
+          <div id="{{section.sectionId}}-{{subsection.id}}" class="accordion-body collapse in">
+            <div class="accordion-inner">
+              <form>
+                <span ng-show="subsection.showJobTitle" class="form-inline">
+                  <input class="input-xlarge" type="text" ng-model="subsection.jobTitle" placeHolder="Software Developer">
+                  <button class="btn" ng-click="subsection.jobTitle='';subsection.showJobTitle=false;">Remove Job Title</button>
+                </span>
+                <button class="btn btn-primary"  ng-click="subsection.showJobTitle=true" ng-show="!subsection.showJobTitle">Add Job Title</button>
+                
+                <br>
+                <br>
+                
+                <span ng-show="subsection.showCompanyName" class="form-inline">
+                  <input class="input-large" type="text" ng-model="subsection.companyName" placeHolder="Google">
+                  <button class="btn" ng-click="subsection.companyName='';subsection.showCompanyName=false;">Remove Company Name</button>
+                </span>
+                <button class="btn btn-primary"  ng-click="subsection.showCompanyName=true" ng-show="!subsection.showCompanyName">Add Company Name</button>
+                
+                <br>
+                <br>
+
+                <span ng-show="subsection.showLocation" class="form-inline">
+                  <input class="input-large" type="text" ng-model="subsection.location" placeHolder="Toronto, Ontario">
+                  <button class="btn" ng-click="subsection.location='';subsection.showLocation=false;">Remove Location</button>
+                </span>
+                <button class="btn btn-primary"  ng-click="subsection.showLocation=true" ng-show="!subsection.showLocation">Add Location</button>
+
+                <br>
+                <br>
+
+                <span ng-show="subsection.showDate" class="form-inline">
+                  <input class="input-large" type="text" ng-model="subsection.date" placeholder="April 2012 - April 2013">
+                  <button class="btn" ng-click="subsection.date='';subsection.showDate=false;">Remove Date</button>
+                </span>
+                <button class="btn btn-primary" ng-click="subsection.showDate=true" ng-show="!subsection.showDate">Add Date</button> 
+                
+                <br>  
+                <br>
+
+                <div ng-repeat="bullet in subsection.bullets">
+                  <label>{{bullet.label}}</label>
+                  <select class="input-mini" ng-model="bullet.bulletType">
+                    <option  ng-repeat="option in options" ng-bind-html-unsafe="option">{{option}}</option>
+                  </select>
+                  <input class="input-xxlarge" type="text" ng-model="bullet.value" name="{{bullet.name}}">
+                </div>
+
+                <button class="btn btn-primary" ng-click="addBulletPoint(subsection)">Add Bullet Point</button>
+                <button class="btn" ng-click="deleteBulletPoint(subsection)">Remove Bullet Point</button><br><br>
+              </form>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary" ng-click="addSubsection(section)">Add Subsection</button>
+        <button class="btn btn-warning" ng-click="resetSection(section)">Reset Section</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Header -->
+<div id="resume" style="width:950px;position:relative;padding:0px;margin-right:auto;margin-left:auto;font-size:12px;">
+  <div style="text-align:center;font-weight:bold;font-size:18px;width:100%;">{{personsName}}</div>
+  <div class="row-fluid">
+    <div class="span3">
+      <div ng-show="showCurrLabel()">Current Address:</div>
+      <div ng-show="currStreet!=''">{{currStreet}}</div>
+      <div ng-show="currCity!=''||currProvince!=''||currPostalCode!=''">{{currCity}} {{currProvince}} {{currPostalCode}}</div>
+      <div><span ng-show="showCurrTelLabel()">Tel: </span>{{currTel}}</div>
+      <div><span ng-show="showCurrCellLabel()">Cell: </span>{{currCell}}</div>
+    </div>
+
+    <div class="span6" ng-show="email!=''" style="text-align:center;">{{email}}</div>
+
+    <div class="span3">
+      <div ng-show="showPermLabel()">Permanent Address:</div>
+      <div ng-show="permStreet!=''">{{permStreet}}</div>
+      <div ng-show="permCity!=''||permProvince!=''||permPostalCode!=''">{{permCity}} {{permProvince}} {{permPostalCode}}</div>
+      <div><span ng-show="showPermTelLabel()">Tel: </span>{{permTel}}</div>
+      <div><span ng-show="showPermCellLabel()">Cell: </span>{{permCell}}</div>
+    </div>
+  </div>
+
+  <div ng-repeat="section in sections" ng-show="hasSection()">
+    <div ng-show="sectionTitle!=''" style="font-size:14px;font-weight:bold;padding:0px;margin:0px;">{{section.sectionTitle}}</div>
+    <div ng-repeat="subsection in section.subsections" ng-show="hasSubsection(section)">
+      <div ng-show="subsection.jobTitle!=''||subsection.date!=''" style="padding:0px;margin:0px;">
+        <span ng-show="subsection.jobTitle!=''" style="float:left;font-weight:bold;padding:0px;margin:0px">{{subsection.jobTitle}}</span>
+        <span ng-show="subsection.date!=''" style="float:right;padding:0px;margin:0px;">{{subsection.date}}</span>
+      </div>
+      <div ng-show="subsection.companyName!=''||subsection.location!=''" style="padding:0px;margin:0px;">
+        <br>
+        {{subsection.companyName}}
+        <span ng-show="isCompanyNameAndLocationEmpty(subsection)"> - </span>
+        {{subsection.location}}
+      </div>
+      <div ng-repeat="bullet in subsection.bullets" ng-show="subsection.bullets.length>0" style="padding:0px;margin:0px;">
+        <span style="padding:0px;margin:0px;" ng-show="bullet.bulletType!=''">&nbsp;&nbsp;&nbsp;&nbsp;{{bullet.bulletType}}</span>
+        <span style="padding:0px;margin:0px;" ng-show="bullet.value!=''">&nbsp;&nbsp;&nbsp;&nbsp;{{bullet.value}}</span>
+      </div>
+    </div>
+    <br ng-show="section.subsections.length>0"/>
+  </div>
+
+</div>

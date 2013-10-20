@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" ng-app="resumeBuilder">
+<head>
+  <meta charset="utf-8">
+  <title>Resume Builder</title>
+  <script src="lib/angular/angular.js"></script>
+  <script src="js/app.js"></script>
+  <script src="lib/jquery-1.9.1.js"></script>
+  <script src="js/controller.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/bootstrap-responsive.min.css"/>
+  <script src="lib/bootstrap/bootstrap.min.js"></script>  
+
+  <style>
+    body{
+      line-height:105%;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="width:950px;position:relative;margin-left:auto;margin-right:auto;" ng-controller="ResumeCtrl">
+
+    <ng-include src="'./header.html'"></ng-include>
+
+    <button class="btn btn-success" ng-click="" style="float:right;">Download Resume</button>
+    <button class="btn btn-primary" ng-click="" style="float:right;margin-right:10px;">Add Final Touches</button>
+    <br/>
+    <br/>
+
+    <ng-include src="'./build.html'"></ng-include>
+
+    <ng-include src="'./footer.html'"></ng-include>
+  </div> 
+</body>
+</html>
